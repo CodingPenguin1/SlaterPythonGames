@@ -478,7 +478,7 @@ def getShipSunkMessage(ship):
     message = messages[rand.randint(0, len(messages)-1)]
     return message
 
-if __name__ == '__main__':
+def Warships():
     global p1
     global p2
 

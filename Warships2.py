@@ -1529,7 +1529,6 @@ def Warships2():
     pygame.display.set_icon(pygame.image.load('WarshipsIcon.png'))
     creatingUsername = ''
     clock = pygame.time.Clock()
-    if __name__ == '__main__':
-        firstRunSetup()
-        accounts = getAllAccounts()
-        mainMenu()
+    firstRunSetup()
+    accounts = getAllAccounts()
+    mainMenu()
