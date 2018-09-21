@@ -4,7 +4,7 @@
 
 Python games by Ryan J. Slater [GitHub](https://github.com/rjslater2000/SlaterPythonGames)
 [PyPi](https://pypi.org/project/SlaterPythonGames/)<br>
-This is an updated replacement for [rygames](https://pypi.org/project/RyGames/) [![Downloads](http://pepy.tech/badge/rygames)](http://pepy.tech/project/rygames)<br>
+This is an updated replacement for [rygames](https://pypi.org/project/RyGames/)<br>
 
 ## Installation
 
