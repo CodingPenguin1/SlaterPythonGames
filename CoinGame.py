@@ -104,3 +104,6 @@ def CoinGame():
     print(100*'\n' + winner + ' wins!')
     print(p0Name + ': $%.2f'%t1s)
     print(p1Name + ': $%.2f'%t2s)
+
+if __name__ == '__main__':
+    CoinGame()

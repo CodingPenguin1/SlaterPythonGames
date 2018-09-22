@@ -90,3 +90,6 @@ def TicTacToe2Player():
         print(winner)
     else:
         print(winner + ' Wins!')
+
+if __name__ == '__main__':
+    TicTacToe2Player()

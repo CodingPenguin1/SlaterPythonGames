@@ -31,17 +31,19 @@ class AdvancedAI():
     def placeShips(self, frequencyMap):
         print('Ship offset: ')
         print(frequencyMap)
-#        probabilityMap = np.array([[10, 15, 19, 21, 22, 22, 21, 19, 15, 10],
-#                                   [15, 20, 24, 26, 27, 27, 26, 24, 20, 15],
-#                                   [19, 24, 28, 30, 31, 31, 30, 28, 24, 19],
-#                                   [21, 26, 30, 32, 33, 33, 32, 30, 26, 21],
-#                                   [22, 27, 31, 33, 34, 34, 33, 31, 27, 22],
-#                                   [22, 27, 31, 33, 34, 34, 33, 31, 27, 22],
-#                                   [21, 26, 30, 32, 33, 33, 32, 30, 26, 21],
-#                                   [19, 24, 28, 30, 31, 31, 30, 28, 24, 19],
-#                                   [15, 20, 24, 26, 27, 27, 26, 24, 20, 15],
-#                                   [10, 15, 19, 21, 22, 22, 21, 19, 15, 10]])
-        probabilityMap = np.zeros((10, 10))
+        probabilityMap = np.array([[10, 15, 19, 21, 22, 22, 21, 19, 15, 10],
+                                   [15, 20, 24, 26, 27, 27, 26, 24, 20, 15],
+                                   [19, 24, 28, 30, 31, 31, 30, 28, 24, 19],
+                                   [21, 26, 30, 32, 33, 33, 32, 30, 26, 21],
+                                   [22, 27, 31, 33, 34, 34, 33, 31, 27, 22],
+                                   [22, 27, 31, 33, 34, 34, 33, 31, 27, 22],
+                                   [21, 26, 30, 32, 33, 33, 32, 30, 26, 21],
+                                   [19, 24, 28, 30, 31, 31, 30, 28, 24, 19],
+                                   [15, 20, 24, 26, 27, 27, 26, 24, 20, 15],
+                                   [10, 15, 19, 21, 22, 22, 21, 19, 15, 10]])
+        for row in range(10):
+            for col in range(10):
+                probabilityMap[row][col] += rand.randint(0, 10)
 
         print('Probability Map:')
         print(probabilityMap)
@@ -61,34 +63,37 @@ class AdvancedAI():
             bestLoc = (0, 0)
             bestDirection = 0
             bestMapValue = 0
+            probabilityMap = np.copy(originalProbabilityMap)
             for row in range(10):
                 for col in range(10):
                     for direction in range(2):
                         probabilityMap = np.copy(originalProbabilityMap)
-
-                        validLoc = True if probabilityMap[row][col] != 0 else False
-                        if direction == 0:
-                            if row+length-1 < 10:
-                                for i in range(length):
-                                    if probabilityMap[row+i][col] == 0:
-                                        validLoc = False
-                                        break
-                                if validLoc:
+                        validLoc = True
+                        if probabilityMap[row][col] == -1:
+                            validLoc = False
+                        if validLoc:
+                            if direction == 0:
+                                if row+length-1 < 10:
                                     for i in range(length):
-                                        probabilityMap[row+i][col] = 0
+                                        if probabilityMap[row+i][col] == -1:
+                                            validLoc = False
+                                            break
+                                    if validLoc:
+                                        for i in range(length):
+                                            probabilityMap[row+i][col] = -1
+                                else:
+                                    validLoc = False
                             else:
-                                validLoc = False
-                        else:
-                            if col+length-1 < 10:
-                                for i in range(length):
-                                    if probabilityMap[row][col+i] == 0:
-                                        validLoc = False
-                                        break
-                                if validLoc:
+                                if col+length-1 < 10:
                                     for i in range(length):
-                                        probabilityMap[row][col+i] = 0
-                            else:
-                                validLoc = False
+                                        if probabilityMap[row][col+i] == -1:
+                                            validLoc = False
+                                            break
+                                    if validLoc:
+                                        for i in range(length):
+                                            probabilityMap[row][col+i] = -1
+                                else:
+                                    validLoc = False
 
                         if np.sum(probabilityMap) > bestMapValue and validLoc:
                             bestMapValue = np.sum(probabilityMap)
@@ -98,10 +103,10 @@ class AdvancedAI():
             ships.append((bestLoc[0], bestLoc[1], bestDirection))
             if bestDirection == 0:
                 for i in range(length):
-                    originalProbabilityMap[bestLoc[0]+i][bestLoc[1]] = 0
+                    originalProbabilityMap[bestLoc[0]+i][bestLoc[1]] = -1
             else:
                 for i in range(length):
-                    originalProbabilityMap[bestLoc[0]][bestLoc[1]+i] = 0
+                    originalProbabilityMap[bestLoc[0]][bestLoc[1]+i] = -1
 #        ships array (row, col, direction)
         # direction 0 is vertical
         return ships

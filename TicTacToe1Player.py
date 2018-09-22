@@ -58,7 +58,7 @@ def __computerTurn__(difficulty):
     '''
     Modifies global list 'board' to take a turn
 
-    Parameters
+    ParametersprintNoose(num):
     ----------
     difficulty : string
         'easy', 'normal', or 'hard'
@@ -365,3 +365,6 @@ def TicTacToe1Player():
         print(winner)
     else:
         print(winner + ' Won!')
+
+if __name__ == '__main__':
+    TicTacToe1Player()

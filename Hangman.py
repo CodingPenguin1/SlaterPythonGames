@@ -35,30 +35,125 @@ def getRandomWord(numPlayers, minWordLength, maxWordLength):
 
 def printNoose(num):
     if num == 0:
-        print('___________')
-    if num == 1:
-        print(6*'     |')
-        print('__________')
-    if num == 2:
-        print('___________')
-    if num == 3:
-        print('___________')
-    if num == 4:
-        print('___________')
-    if num == 5:
-        print('___________')
-    if num == 6:
-        print('___________')
-    if num == 7:
-        print('___________')
-    if num == 8:
-        print('___________')
-    if num == 9:
-        print('___________')
-    if num == 10:
-        print('___________')
-    if num == 11:
-        print('___________')
+        print('          ')
+        print('          ')
+        print('          ')
+        print('          ')
+        print('          ')
+        print('          ')
+        print('          ')
+        print('          ')
+        print('       _____')
+    elif num == 1:
+        print('          ')
+        print('          ')
+        print('          ')
+        print('          ')
+        print('          ')
+        print('          ')
+        print('          ')
+        print('          ')
+        print('       _/|\_')
+    elif num == 2:
+        print('          ')
+        print('         |')
+        print('         |')
+        print('         |')
+        print('         |')
+        print('         |')
+        print('         |')
+        print('         |')
+        print('       _/|\_')
+    elif num == 3:
+        print('     ____')
+        print('        \|')
+        print('         |')
+        print('         |')
+        print('         |')
+        print('         |')
+        print('         |')
+        print('         |')
+        print('       _/|\_')
+    elif num == 4:
+        print('     ____')
+        print('     |  \|')
+        print('         |')
+        print('         |')
+        print('         |')
+        print('         |')
+        print('         |')
+        print('         |')
+        print('       _/|\_')
+    elif num == 5:
+        print('     ____')
+        print('     |  \|')
+        print('     O   |')
+        print('         |')
+        print('         |')
+        print('         |')
+        print('         |')
+        print('         |')
+        print('       _/|\_')
+    elif num == 6:
+        print('     ____')
+        print('     |  \|')
+        print('     O   |')
+        print('     |   |')
+        print('         |')
+        print('         |')
+        print('         |')
+        print('         |')
+        print('       _/|\_')
+    elif num == 7:
+        print('     ____')
+        print('     |  \|')
+        print('     O   |')
+        print('     |   |')
+        print('     |   |')
+        print('         |')
+        print('         |')
+        print('         |')
+        print('       _/|\_')
+    elif num == 8:
+        print('     ____')
+        print('     |  \|')
+        print('     O   |')
+        print('    /|   |')
+        print('     |   |')
+        print('         |')
+        print('         |')
+        print('         |')
+        print('       _/|\_')
+    elif num == 9:
+        print('     ____')
+        print('     |  \|')
+        print('     O   |')
+        print('    /|\  |')
+        print('     |   |')
+        print('         |')
+        print('         |')
+        print('         |')
+        print('       _/|\_')
+    elif num == 10:
+        print('     ____')
+        print('     |  \|')
+        print('     O   |')
+        print('    /|\  |')
+        print('     |   |')
+        print('    /    |')
+        print('         |')
+        print('         |')
+        print('       _/|\_')
+    elif num >= 11:
+        print('     ____')
+        print('     |  \|')
+        print('     O   |')
+        print('    /|\  |')
+        print('     |   |')
+        print('    / \  |')
+        print('         |')
+        print('         |')
+        print('       _/|\_')
 
 
 def checkWin(guesses, word):
@@ -198,9 +293,13 @@ def Hangman():
             print('\nYou lose')
             break
 
+    print(500*'\n')
+    printNoose(11)
     print('The word was: ' + word)
-    print('Definition: ' + define(word))
-
+    try:
+        print('Definition: ' + define(word))
+    except:
+        print('Unable to find definition')
 
 
 
