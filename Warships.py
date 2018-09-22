@@ -1004,3 +1004,6 @@ def Warships():
     print("")
     printBoard2(p1.name, p1FinalBoard, "Fleet", p2.name, p2FinalBoard, "Fleet")
     input("Press [Enter] to quit")
+
+if __name__ == '__main__':
+    Warships()

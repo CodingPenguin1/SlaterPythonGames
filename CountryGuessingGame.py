@@ -34,3 +34,6 @@ def CountryGuessingGame():
         print('Congratulations, you guessed all ' + str(len(countryList)) + ' countries correctly!')
     else:
         print('You guessed ' + str(len(correctGuesses)) + '/' + str(len(countryList)) + ' countries correctly!')
+
+if __name__ == '__main__':
+    CountryGuessingGame()

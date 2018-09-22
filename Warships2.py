@@ -1422,6 +1422,7 @@ def placeShips(player, playerNum, ai=False):
                 if currentPlaceShipLoc[0]+getShipLengthFromId(currentPlaceShip)-1 < 10:
                     currentPlaceShipDir *= -1
                     click = (click[0], click[1], 0)
+            time.sleep(0.2)
 
         # Place Ship
         if click[0] == 1 and currentPlaceShip != 0:
@@ -1450,6 +1451,7 @@ def placeShips(player, playerNum, ai=False):
             break
         pygame.display.update()
         clock.tick(15)
+    time.sleep(0.2)
     return Board
 
 def paused():
@@ -1532,3 +1534,6 @@ def Warships2():
     firstRunSetup()
     accounts = getAllAccounts()
     mainMenu()
+
+if __name__ == '__main__':
+    Warships2()

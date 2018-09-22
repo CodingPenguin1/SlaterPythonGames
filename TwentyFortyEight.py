@@ -432,3 +432,6 @@ def TwentyFortyEight():
     __titleTextSize__ = 115
     __button__TextSize = 30
     play()
+
+if __name__ == '__main__':
+    TwentyFortyEight()
