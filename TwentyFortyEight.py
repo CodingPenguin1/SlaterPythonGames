@@ -9,6 +9,7 @@
 import pygame
 import random as rand
 import numpy as np
+from sys import exit
 
 class __colors__():
     BLACK = (0,0,0)
@@ -110,7 +111,7 @@ def __paused__():
 
 def __quitGame__():
     pygame.quit()
-    quit()
+    exit
 
 
 #==================================================================================================================
